@@ -218,7 +218,7 @@ namespace SimpleAntiGate
                         continue;
                     }
                     if (result.Contains("ERROR_")) return result;
-                    if (!result.Contains("OK|")) return "UNKNOWN_ERROR: " + result;
+                    if (!result.Contains("OK|")) return "ERROR_UNKNOWN: " + result;
                 }
                 if (result.Contains("ERROR_")) return result;
                 var captchaId = result.Replace("OK|", "").Trim();
@@ -232,6 +232,7 @@ namespace SimpleAntiGate
                     if (result.Contains("ERROR_")) return result;
                     if (result.Contains("OK|")) return result.Replace("OK|", "").Trim();
                 }
+                result = "";
             }
 
             return result;
